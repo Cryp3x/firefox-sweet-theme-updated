@@ -155,6 +155,126 @@
 	min-height: 36px !important;
 }
 
+/* Footer / toolbar area in the sidebar (bookmarks,history,ai settings buttons, etc.) */
+#sidebar-box .sidebar-footer,
+#sidebar-box #sidebar-footer,
+.sidebar-footer,
+#sidebar-footer,
+.sidebery-footer,
+.vtb-footer,
+.verticaltabs-footer,
+.vertical-tabs-footer,
+#sidebar-toolbar,
+.sidebar-toolbar,
+#sidebar-box toolbar,
+.sidebar-panel toolbar,
+#sidebar-bottom,
+.sidebar-bottom,
+#sidebar-footer-toolbar,
+.vertical-tabs-footer,
+.native-vertical-tabs-footer {
+	background: var(--sweet-tabbar-background) !important;
+	background-color: var(--sweet-tabbar-background) !important;
+	background-image: none !important;
+	color: var(--sweet-toolbar-color) !important;
+	border-top: none !important;
+	border-bottom: none !important;
+	box-shadow: none !important;
+}
+
+/* Force toolbars/buttons/icons area inside sidebar to match theme */
+#sidebar-box .places-toolbar,
+#sidebar-box .sidebar-footer toolbar,
+.sidebar-footer toolbar,
+.sidebery-footer toolbar,
+.vertical-tabs-footer toolbar,
+.vtb-footer toolbar,
+.sidebery-toolbar,
+.tst-sidebar-toolbar,
+#sidebar-box toolbar,
+#sidebar-box .toolbar,
+.sidebar-panel .toolbar,
+#sidebar-toolbar,
+.sidebar-toolbar,
+#sidebar-footer-toolbar,
+.vertical-tabs-toolbar,
+.native-vertical-tabs-toolbar,
+toolbarbutton {
+	background: transparent !important;
+	background-color: transparent !important;
+	background-image: none !important;
+	color: var(--sweet-toolbar-color) !important;
+	border: 0 !important;
+	box-shadow: none !important;
+}
+
+#sidebar-box toolbarseparator,
+.sidebar-footer toolbarseparator,
+.toolbarseparator {
+	background: var(--sweet-toolbar-border-color) !important;
+	border: 0 !important;
+	min-width: 1px !important;
+}
+
+/* Remove stray separator lines using old background */
+#sidebar-box .sidebar-separator,
+.sidebar-separator,
+#sidebar-box .separator,
+.sidebar .separator,
+#sidebar-splitter,
+#vertical-tabs-splitter {
+	background: var(--sweet-toolbar-border-color) !important;
+	border-color: var(--sweet-toolbar-border-color) !important;
+}
+
+/* Ensure the bottom icons area doesn't have its own background so the pane color shows through */
+#sidebar-box .sidebar-footer *,
+.sidebar-footer *,
+.sidebery-footer *,
+.vertical-tabs-footer * {
+	background: transparent !important;
+	background-image: none !important;
+}
+
+/* Polish vertical tab items to better match top tabs */
+#vertical-tabs-list .all-tabs-item {
+	padding: 6px 12px !important;
+	margin: 6px 10px !important;
+	min-height: 40px !important;
+	height: auto !important;
+	display: flex !important;
+	align-items: center !important;
+}
+
+#vertical-tabs-list .all-tabs-item .all-tabs-button {
+	-moz-appearance: none !important;
+	background: transparent !important;
+	color: inherit !important;
+	display: inline-flex !important;
+	align-items: center !important;
+}
+
+/* Make tab favicons/symbols match theme (fall back if icons are SVG images) */
+#vertical-tabs-list .all-tabs-button>image,
+#vertical-tabs-list .all-tabs-button>img,
+#vertical-tabs-list .all-tabs-button>.favicon,
+#vertical-tabs-list .all-tabs-button>.tab-icon {
+	filter: none !important;
+	opacity: 0.95 !important;
+}
+
+/* Make selected item stand out with accent bar and clearer bg */
+#vertical-tabs-list .all-tabs-item[selected] {
+	background: linear-gradient(90deg, rgba(var(--sweet-start-gradient-color-rgb), 0.06), transparent) !important;
+	border-inline-start: 4px solid var(--sweet-tabbar-tab-active-border-bottom-color) !important;
+}
+
+/* Hover and active states */
+#vertical-tabs-list .all-tabs-item:hover {
+	background: rgba(255, 255, 255, 0.02) !important;
+}
+
+
 /* HORIZONTAL TABS – match vertical tabs styling for consistency */
 .tabbrowser-tab {
 	-moz-appearance: none !important;
