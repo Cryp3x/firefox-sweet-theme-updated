@@ -1,0 +1,44 @@
+/* headerbar.css – 2025 fixed, CSD + vertical tabs + private browsing ready */
+@import "headerbar-urlbar.css";
+/* ← keep your fixed urlbar version */
+@import "headerbar-private-urlbar.css";
+/* ← keep the new subtle mask version */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Base headerbar padding */
+#nav-bar {
+	padding: 6px 4px !important;
+	/* slightly more even than 6px 3px */
+	position: relative;
+	z-index: 1;
+}
+
+/* CSD – proper headerbar colors when tabs are in titlebar (GNOME, etc.) */
+:root[tabsintitlebar]:not([inFullscreen]) #nav-bar {
+	background: var(--sweet-headerbar-background) !important;
+	border-bottom: 1px solid var(--sweet-headerbar-border-color) !important;
+	box-shadow: var(--sweet-headerbar-box-shadow) !important;
+}
+
+/* Inactive window */
+:root[tabsintitlebar]:not([inFullscreen]) #nav-bar:-moz-window-inactive {
+	background: var(--sweet-inactive-headerbar-background) !important;
+	border-bottom-color: var(--sweet-inactive-headerbar-border-color) !important;
+	box-shadow: var(--sweet-inactive-headerbar-box-shadow) !important;
+}
+
+/* Critical fix for native vertical tabs: prevent headerbar from painting behind the vertical pane */
+#vertical-tabs-pane {
+	z-index: 10 !important;
+	/* above headerbar */
+}
+
+#navigator-toolbox {
+	z-index: 1 !important;
+}
+
+/* Small polish: make sure URL bar dropdown doesn’t get clipped by headerbar overflow */
+#nav-bar {
+	overflow: visible !important;
+}

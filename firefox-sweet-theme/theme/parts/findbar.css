@@ -1,0 +1,105 @@
+/* findbar.css – PERFECT sweet-theme 2025 (centered, clean, no glitches) */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+findbar {
+	background: var(--sweet-popover-background) !important;
+	border-top: 1px solid var(--sweet-popover-border-color) !important;
+	border-radius: 9px 9px 0 0 !important;
+	box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15) !important;
+	padding: 8px !important;
+	margin: 0 8px 8px 8px !important;
+	/* small margin from window edges */
+	position: relative;
+}
+
+/* Main container – centered layout */
+.findbar-container {
+	padding: 0 !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	width: 100%;
+}
+
+/* Textbox wrapper */
+hbox[anonid="findbar-textbox-wrapper"] {
+	flex: 1;
+	max-width: 600px;
+	/* prevents it from going full-width on huge screens */
+	display: flex !important;
+}
+
+/* Find input field */
+.findbar-textbox {
+	margin: 0 !important;
+	height: 36px !important;
+	background: var(--sweet-entry-background, var(--sweet-urlbar-background)) !important;
+	border-radius: 8px !important;
+	padding: 0 12px !important;
+}
+
+/* Status text ("3 of 10 matches") */
+.findbar-find-status,
+.found-matches {
+	color: var(--sweet-toolbar-color) !important;
+	opacity: 0.8;
+	font-size: 0.95em;
+	order: -1;
+	padding: 0 8px !important;
+}
+
+.found-matches:not([hidden])~.findbar-find-status {
+	display: none;
+}
+
+/* Buttons – match sweet-theme button style */
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-highlight,
+.findbar-case-sensitive,
+.findbar-entire-word,
+.findbar-closebutton {
+	-moz-appearance: none !important;
+	background: var(--sweet-button-background) !important;
+	border: 1px solid var(--sweet-button-border-color) !important;
+	border-radius: 6px !important;
+	min-width: 36px !important;
+	height: 36px !important;
+	padding: 0 !important;
+	margin: 0 2px !important;
+}
+
+.findbar-closebutton {
+	margin-inline-start: auto !important;
+}
+
+/* Hover/active */
+.findbar-find-previous:hover,
+.findbar-find-next:hover,
+.findbar-highlight:hover,
+.findbar-case-sensitive:hover,
+.findbar-entire-word:hover,
+.findbar-closebutton:hover {
+	background: var(--sweet-popover-button-hover-background) !important;
+}
+
+/* Responsive – narrow windows */
+@media (max-width: 980px) {
+	.findbar-container {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+
+	hbox[anonid="findbar-textbox-wrapper"] {
+		flex: 100% !important;
+		max-width: none !important;
+		order: -1;
+	}
+
+	.findbar-find-status,
+	.found-matches {
+		order: 0;
+		flex: 1;
+	}
+}

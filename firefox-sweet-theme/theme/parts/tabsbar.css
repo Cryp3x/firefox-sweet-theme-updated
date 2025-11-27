@@ -1,0 +1,194 @@
+/* VERTICAL TABS – EXACT sweet-theme top-tab look, including perfect background match (2025) */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Force exact same background as top tab bar */
+#sidebar-box #vertical-tabs-pane,
+#sidebar-box #verticaltabs-pane,
+#sidebar-box .vertical-tabs-pane,
+#sidebar-box #vertical-tabs-pane>vbox,
+#sidebar-box #verticaltabs-pane>vbox {
+	background: var(--sweet-tabbar-background) !important;
+	background-color: var(--sweet-tabbar-background) !important;
+	background-image: none !important;
+}
+
+#sidebar-box #vertical-tabs-pane:-moz-window-inactive,
+#sidebar-box #verticaltabs-pane:-moz-window-inactive,
+#sidebar-box .vertical-tabs-pane:-moz-window-inactive {
+	background: var(--sweet-inactive-tabbar-background) !important;
+	background-color: var(--sweet-inactive-tabbar-background) !important;
+	background-image: none !important;
+}
+
+/* Extra aggressive fallbacks: cover common extension/sidebar selectors
+   and force all descendants to be transparent so the pane color shows through.
+   Some vertical-tabs extensions use different IDs/classes; this block
+   attempts to match the most common ones (Sidebery, TST, Vertical Tabs, etc.). */
+#sidebar-box,
+#sidebar,
+.sidebar,
+.sidebar-panel,
+.sidebar-content,
+.sidebar-inner,
+.verticaltabs,
+.vertical-tabs,
+#verticaltabs,
+#vertical-tabs,
+#sidebery-sidebar,
+.sidebery-sidebar,
+#sideberypanel,
+.tst-sidebar,
+.tst-tree,
+#vtabs,
+.vtabs {
+	background: var(--sweet-tabbar-background) !important;
+	background-color: var(--sweet-tabbar-background) !important;
+	background-image: none !important;
+}
+
+#sidebar-box *,
+.sidebery-sidebar *,
+.verticaltabs *,
+.vertical-tabs *,
+.tst-tree *,
+#verticaltabs *,
+#vertical-tabs *,
+.vtabs * {
+	background: transparent !important;
+	background-image: none !important;
+}
+
+/* Inactive variants */
+#sidebar-box:-moz-window-inactive,
+#sidebar:-moz-window-inactive,
+.sidebar:-moz-window-inactive,
+.sidebar-panel:-moz-window-inactive,
+.verticaltabs:-moz-window-inactive,
+.vertical-tabs:-moz-window-inactive,
+#verticaltabs:-moz-window-inactive,
+#vertical-tabs:-moz-window-inactive,
+.sidebery-sidebar:-moz-window-inactive,
+.tst-sidebar:-moz-window-inactive {
+	background: var(--sweet-inactive-tabbar-background) !important;
+	background-color: var(--sweet-inactive-tabbar-background) !important;
+	background-image: none !important;
+}
+
+/* Splitter – exact same color */
+#vertical-tabs-splitter {
+	background: var(--sweet-toolbar-border-color) !important;
+	width: 1px !important;
+}
+
+/* The list container */
+#vertical-tabs-list {
+	background: var(--sweet-tabbar-background) !important;
+	background-image: none !important;
+}
+
+/* Every single vertical tab = exact clone of sweet-theme top tab */
+#vertical-tabs-list .all-tabs-item {
+	-moz-appearance: none !important;
+	background: transparent !important;
+	border-radius: 6px !important;
+	margin: 4px 8px !important;
+	padding: 0 10px !important;
+	min-height: 36px !important;
+	height: 36px !important;
+	color: var(--sweet-tabbar-tab-color) !important;
+	font-weight: bold !important;
+	transition: background 0.2s !important;
+}
+
+/* Hover – exact same as top tabs */
+#vertical-tabs-list .all-tabs-item:hover {
+	background: var(--sweet-tabbar-tab-hover-background) !important;
+}
+
+/* Selected – thick accent line on left + text color */
+#vertical-tabs-list .all-tabs-item[selected] {
+	background: transparent !important;
+	border-inline-start: 4px solid var(--sweet-tabbar-tab-active-border-bottom-color) !important;
+	color: var(--sweet-tabbar-tab-active-color) !important;
+}
+
+/* Close button – show only on hover, exact sweet-theme style */
+.all-tabs-secondary-button {
+	display: none !important;
+	margin-inline-start: auto !important;
+	width: 16px !important;
+	height: 16px !important;
+	padding: 4px !important;
+	border-radius: 50% !important;
+	list-style-image: url("chrome://browser/skin/tab-close.svg") !important;
+}
+
+.all-tabs-item:hover .all-tabs-secondary-button {
+	display: block !important;
+}
+
+.all-tabs-secondary-button:hover {
+	background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Container dot – exact same as top tabs */
+.all-tabs-item[usercontextid]>.all-tabs-button::before {
+	content: "";
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--identity-tab-color);
+	margin: 0 8px 0 auto !important;
+}
+
+/* Sound icons – visible */
+.all-tabs-item .all-tabs-button>image {
+	margin-inline-end: 6px !important;
+}
+
+/* New tab button – matches top bar */
+#vertical-tabs-newtab-button {
+	background: var(--sweet-tabbar-background) !important;
+	border-top: 1px solid var(--sweet-toolbar-border-color) !important;
+	border-radius: 6px !important;
+	margin: 8px !important;
+	min-height: 36px !important;
+}
+
+/* HORIZONTAL TABS – match vertical tabs styling for consistency */
+.tabbrowser-tab {
+	-moz-appearance: none !important;
+	background: transparent !important;
+	border-radius: 6px !important;
+	margin: 0 2px !important;
+	padding: 0 10px !important;
+	min-height: 36px !important;
+	height: 36px !important;
+	color: var(--sweet-tabbar-tab-color) !important;
+	font-weight: bold !important;
+	transition: background 0.2s !important;
+}
+
+.tabbrowser-tab:hover {
+	background: var(--sweet-tabbar-tab-hover-background) !important;
+}
+
+.tabbrowser-tab[selected] {
+	background: var(--sweet-tabbar-tab-active-background) !important;
+	border-bottom: 4px solid var(--sweet-tabbar-tab-active-border-bottom-color) !important;
+	color: var(--sweet-tabbar-tab-active-color) !important;
+}
+
+.tabbrowser-tab[selected]:hover {
+	background: var(--sweet-tabbar-tab-active-hover-background) !important;
+}
+
+/* Inactive window */
+.tabbrowser-tab:-moz-window-inactive {
+	color: var(--sweet-inactive-tabbar-tab-color) !important;
+}
+
+.tabbrowser-tab[selected]:-moz-window-inactive {
+	background: var(--sweet-inactive-tabbar-tab-active-background) !important;
+	color: var(--sweet-inactive-tabbar-tab-active-color) !important;
+}

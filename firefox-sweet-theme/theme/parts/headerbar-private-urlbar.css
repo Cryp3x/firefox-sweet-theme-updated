@@ -1,0 +1,36 @@
+/* headerbar-private-urlbar.css – fixed & beautiful 2025 */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Hide the ugly default purple mask icon in the tab */
+#TabsToolbar .private-browsing-indicator {
+	display: none !important;
+}
+
+/* Subtle private-browsing decoration – only in private windows */
+:root[privatebrowsingmode=temporary] #nav-bar {
+	position: relative;
+	overflow: hidden;
+}
+
+/* Big faint mask icon in the background – looks classy */
+:root[privatebrowsingmode=temporary] #nav-bar::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: url("../icons/user-not-tracked.svg") center/80px no-repeat;
+	opacity: 0.06;
+	pointer-events: none;
+	z-index: 0;
+}
+
+/* Slightly stronger when window is inactive */
+:root[privatebrowsingmode=temporary]:-moz-window-inactive #nav-bar::before {
+	opacity: 0.04;
+}
+
+/* Dark mode – make the mask visible */
+@media (prefers-color-scheme: dark) {
+	:root[privatebrowsingmode=temporary] #nav-bar::before {
+		filter: brightness(2.5);
+	}
+}

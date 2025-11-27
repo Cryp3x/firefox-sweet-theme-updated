@@ -1,0 +1,112 @@
+/* headerbar-urlbar.css – FINAL 2025 version (no transparent dropdown) */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* URL bar height */
+#urlbar {
+	--urlbar-height: 28px;
+	--urlbar-toolbar-height: 30px !important;
+}
+
+/* Center horizontally */
+toolbarspring {
+	max-width: 10000px !important;
+}
+
+/* Main URL bar styling */
+#urlbar {
+	box-shadow: none !important;
+}
+
+#urlbar-background {
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: var(--sweet-entry-box-shadow) !important;
+}
+
+/* Megabar / breakout fixes */
+#urlbar[breakout][breakout-extend] {
+	width: var(--urlbar-width) !important;
+	top: 4px !important;
+	left: 0 !important;
+	right: 0 !important;
+	margin: 0 auto !important;
+}
+
+#urlbar[breakout][breakout-extend][open] {
+	height: auto !important;
+	max-height: unset !important;
+}
+
+/* ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←← */
+/* FIXED: Dropdown now has proper solid popover background */
+.urlbarView,
+.urlbarView-body-outer,
+.urlbarView-body-inner {
+	background: var(--sweet-popover-background) !important;
+	border: 1px solid var(--sweet-popover-border-color) !important;
+	border-radius: 9px !important;
+	box-shadow: var(--sweet-popover-box-shadow, 0 4px 16px rgba(0, 0, 0, 0.3)) !important;
+	margin-top: 4px !important;
+}
+
+/* Result rows */
+.urlbarView-row-inner {
+	padding-block: 6px !important;
+	border-radius: 6px !important;
+}
+
+.urlbarView-row[selected] .urlbarView-row-inner {
+	background: var(--sweet-accent) !important;
+	color: white !important;
+}
+
+.urlbarView-row:not([selected]):hover .urlbarView-row-inner {
+	background: var(--sweet-popover-button-hover-background) !important;
+}
+
+/* One-off search engines */
+.search-one-offs {
+	background: var(--sweet-popover-background) !important;
+	border-top: 1px solid var(--sweet-popover-border-color) !important;
+	border-radius: 0 0 9px 9px !important;
+	padding: 8px !important;
+}
+
+/* Focus glow */
+#urlbar[focused]>#urlbar-background {
+	outline: 1.5px solid var(--sweet-focused-urlbar-border-color) !important;
+	outline-offset: -1.5px !important;
+}
+
+/* Search mode / zoom / labels */
+#urlbar-search-mode-indicator,
+#urlbar-zoom-button,
+#urlbar-label-box {
+	background: var(--sweet-popover-background) !important;
+	border: 1px solid var(--sweet-popover-border-color) !important;
+	border-radius: 9px !important;
+	margin: 4px 0 !important;
+}
+
+#urlbar-zoom-button {
+	opacity: 0.8 !important;
+}
+
+#urlbar-zoom-button:hover {
+	opacity: 1 !important;
+}
+
+/* Identity box – clean */
+#identity-box[pageproxystate="valid"]>.identity-box-button,
+#urlbar-label-box {
+	background: transparent !important;
+}
+
+#identity-box[pageproxystate="valid"]>.identity-box-button:hover:not([open]) {
+	background: hsla(0, 0%, 70%, .2) !important;
+}
+
+#identity-box[pageproxystate="valid"]>.identity-box-button:hover:active,
+#identity-box[pageproxystate="valid"]>.identity-box-button[open] {
+	background: hsla(0, 0%, 70%, .3) !important;
+}
